@@ -3,8 +3,20 @@
         <%- include('navbar') %>
         <h1>By Team</h1>
             <h2>Eastern Conference</h2>
+                <% easternteams.map((team) => { %>
+                    <img src = "<%= team.image_link %>">
+                  <% }) %>
             <h2>Western Conference</h2>
-        <a href="/players">By Player</a>
+            <% westernteams.map((team) => { %>
+                <img src = "<%= team.image_link %>">
+            <% }) %>
+        <a href="/players"><h1>By Player</h1></a>
+        <% playerimages.map((player) => { %>
+            <img src = "<%= player.image_link %>">
+          <% }) %>
         <h1>All Jerseys</h1>
+        <% jerseyimages.map((jersey) => { %>
+            <img src = "<%= jersey.image_link %>">
+          <% }) %>
     </body>
 </html>
