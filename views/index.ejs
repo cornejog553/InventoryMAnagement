@@ -1,18 +1,29 @@
 <html>
     <body>
+        
         <%- include('navbar') %>
         <h1>By Team</h1>
             <h2>Eastern Conference</h2>
                 <% easternteams.map((team) => { %>
-                    <img src = "<%= team.image_link %>">
+                    <h3><%= team.name %></h3>
+                    <a href="/team?team=<%= team.name %>">
+                        <img src = "<%= team.image_link %>">
+                    </a>
                   <% }) %>
             <h2>Western Conference</h2>
             <% westernteams.map((team) => { %>
-                <img src = "<%= team.image_link %>">
+                <h3><%= team.name %></h3>
+                <a href="/team?team=<%= team.name %>">
+                    <img src = "<%= team.image_link %>">
+                </a>
+                
             <% }) %>
-        <a href="/players"><h1>By Player</h1></a>
-        <% playerimages.map((player) => { %>
-            <img src = "<%= player.image_link %>">
+        <h1>By Player</h1></a>
+        <% player.map((player) => { %>
+            <h3><%= player.name %></h3>
+            <a href="/players?playerid=<%= player.player_id %>">
+                <img src = "<%= player.image_link %>">
+            </a>
           <% }) %>
         <h1>All Jerseys</h1>
         <% jerseyimages.map((jersey) => { %>

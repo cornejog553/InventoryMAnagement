@@ -1,0 +1,10 @@
+<html>
+    <body>
+        
+        <%- include('navbar') %>
+        <h1>By Team</h1>
+                <% teamjerseys.map((team) => { %>
+                    <img src = "<%= team.image_link %>">
+                  <% }) %>
+    </body>
+</html>

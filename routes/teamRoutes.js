@@ -1,5 +1,5 @@
 const express = require('express');
-const indexController = require('../controllers/indexController');
+const teamController = require('../controllers/teamController');
 
 const router = express.Router();
 
@@ -13,8 +13,6 @@ const router = express.Router();
 // router-level middlewares
 
 // GET request for getting all the users
-router.get("/", (req, res) => {
-    res.render("index",indexController.displayIndex);
-});
+router.get('/', teamController.getTeamJerseys);
 
 module.exports = router;

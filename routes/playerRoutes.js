@@ -13,6 +13,6 @@ const router = express.Router();
 // router-level middlewares
 
 // GET request for getting all the users
-router.get('/', playerController.getPlayers);
+router.get('/', playerController.getPlayerJerseys);
 
 module.exports = router;

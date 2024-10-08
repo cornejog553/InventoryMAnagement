@@ -1,0 +1,9 @@
+<html>
+    <body>   
+        <%- include('navbar') %>
+        <h1><%= playerjerseys[0].name %> Jerseys</h1>
+                <% playerjerseys.map((player) => { %>
+                    <img src = "<%= player.image_link %>">
+                  <% }) %>
+    </body>
+</html>

@@ -1,11 +1,12 @@
 const db = require("../db/queries");
 
-async function getPlayers(req, res) {
-  const players = await db.getAllPlayers();
-  console.log("Players: ", players);
-  res.send("Players: " + players.map(player => player.name).join(", "));
+async function getPlayerJerseys(req, res) {
+  const playerJerseys = await db.getSpecificPlayerJerseys(req.query.playerid);
+  console.log(playerJerseys);
+    
+  res.render("../views/jerseyByPlayer", {playerjerseys: playerJerseys,});
 }
 
 module.exports = {
-    getPlayers
-  };
+  getPlayerJerseys
+};
