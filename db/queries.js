@@ -6,7 +6,7 @@ async function getAllPlayers() {
 }
 
 async function getSpecificPlayerJerseys(playerId) {
-  const { rows } = await pool.query("SELECT jerseys.image_link, player.name, player.player_id FROM jerseys INNER JOIN player ON jerseys.player = player.player_id WHERE player.player_id = $1",[playerId]);
+  const { rows } = await pool.query("SELECT jerseys.image_link, jerseys.jersey_id, player.name, player.player_id FROM jerseys INNER JOIN player ON jerseys.player = player.player_id WHERE player.player_id = $1",[playerId]);
   return rows;
 }
 
@@ -40,6 +40,11 @@ async function getJerseysImage() {
   return rows;
 }
 
+async function getJerseyDetailsById(id) {
+  const { rows } = await pool.query("SELECT * FROM jerseys WHERE jersey_id = $1",[id]);
+  return rows;
+}
+
 // async function insertUsername(username) {
 //   await pool.query("INSERT INTO usernames (username) VALUES ($1)", [username]);
 // }
@@ -51,5 +56,6 @@ module.exports = {
   getWesternTeams,
   getPlayersImage,
   getJerseysByTeam,
-  getJerseysImage
+  getJerseysImage,
+  getJerseyDetailsById
 };

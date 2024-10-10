@@ -1,6 +1,7 @@
 const express = require("express");
 const playerRouter = require('./routes/playerRoutes')
 const teamRouter = require('./routes/teamRoutes')
+const jerseyRouter = require('./routes/jerseyRoutes')
 const app = express();
 const path = require("node:path");
 const db = require("./db/queries");
@@ -22,6 +23,8 @@ app.use((req, res, next) => {
 
 // base mount path is `/players` and will always execute on that specific mount path, and yes including `/users/a/b/c`
 app.use('/players', playerRouter);
+
+app.use('/jersey', jerseyRouter);
 
 const PORT = 3000;
 app.listen(PORT, () => console.log(`My first Express app - listening on port ${PORT}!`));
