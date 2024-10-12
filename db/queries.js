@@ -41,7 +41,7 @@ async function getJerseysImage() {
 }
 
 async function getJerseyDetailsById(id) {
-  const { rows } = await pool.query("SELECT * FROM jerseys WHERE jersey_id = $1",[id]);
+  const { rows } = await pool.query("SELECT jerseys.number, jerseys.price, jerseys.quantity, jerseys.image_link, jerseys.team, player.name FROM jerseys INNER JOIN player ON jerseys.player = player.player_id WHERE jersey_id = $1",[id]);
   return rows;
 }
 

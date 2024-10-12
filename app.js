@@ -2,6 +2,7 @@ const express = require("express");
 const playerRouter = require('./routes/playerRoutes')
 const teamRouter = require('./routes/teamRoutes')
 const jerseyRouter = require('./routes/jerseyRoutes')
+const newJerseyRouter = require('./routes/newJerseyRoutes')
 const app = express();
 const path = require("node:path");
 const db = require("./db/queries");
@@ -11,7 +12,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.get("/", displayIndex);
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
     // You can of course also create your own for your own use-case!
@@ -25,6 +26,8 @@ app.use((req, res, next) => {
 app.use('/players', playerRouter);
 
 app.use('/jersey', jerseyRouter);
+
+app.use('/new', newJerseyRouter)
 
 const PORT = 3000;
 app.listen(PORT, () => console.log(`My first Express app - listening on port ${PORT}!`));
