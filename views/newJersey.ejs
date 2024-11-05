@@ -2,10 +2,10 @@
     <body>
         <h1>New Jersey</h1>
         <form action="/new" method="POST">
-            <label for="fullName">Player:</label>
+            <label for="player">Player:</label>
             <select id="player" name="player">
                 <% players.map((player) => { %>
-                    <option value="<%= player.name %>"><%= player.name %></option>
+                    <option value="<%= player.player_id %>"><%= player.name %></option>
                 <% }) %>
             </select><br>
 

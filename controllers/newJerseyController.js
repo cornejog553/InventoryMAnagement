@@ -1,21 +1,21 @@
 const db = require("../db/queries");
 
 async function displayNewJerseyPage(req, res) {
-  const players = await db.getAllPlayers()
-  console.log(players);
-  
+  const players = await db.getAllPlayers()  
   res.render("../views/newJersey", {players: players,})
 }
 
 async function addNewJersey(req, res) {
-  let {fullName, team, playernumber, jerseyprice, jerseyquantity, imagelink} = req.body
+  let {fullName, team, playernumber, jerseyprice, jerseyquantity, imagelink, player} = req.body
+  player = Number(player)
   playernumber = Number(playernumber)
   jerseyprice = parseFloat(jerseyprice)
   jerseyquantity = Number(jerseyquantity)
-  console.log({fullName, team, playernumber, jerseyprice, jerseyquantity, imagelink});
-  db.insertNewJersey(playernumber, jerseyprice, jerseyquantity, imagelink, fullName, team)
+  console.log({team, playernumber, jerseyprice, jerseyquantity, imagelink, player});
+  db.insertNewJersey(playernumber, jerseyprice, jerseyquantity, imagelink, player, team)
+  const players = await db.getAllPlayers()  
     
-  res.render("../views/newJersey");
+  res.render("../views/newJersey", {players: players,});
 }
 
 module.exports = {
