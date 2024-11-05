@@ -45,9 +45,9 @@ async function getJerseyDetailsById(id) {
   return rows;
 }
 
-// async function insertUsername(username) {
-//   await pool.query("INSERT INTO usernames (username) VALUES ($1)", [username]);
-// }
+async function insertNewJersey(number, price, quantity, image_link, player, team) {
+  await pool.query("INSERT INTO jerseys (number, price, quantity, image_link, player, team) VALUES ($1, $2, $3, $4, $5, $6)", [number, price,quantity, image_link, player, team]);
+}
 
 module.exports = {
   getAllPlayers,
@@ -57,5 +57,6 @@ module.exports = {
   getPlayersImage,
   getJerseysByTeam,
   getJerseysImage,
-  getJerseyDetailsById
+  getJerseyDetailsById,
+  insertNewJersey
 };
