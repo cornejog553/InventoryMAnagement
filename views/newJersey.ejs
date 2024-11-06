@@ -1,7 +1,8 @@
 <html>
     <body>
+        <%- include('navbar') %>
         <h1>New Jersey</h1>
-        <form action="/new" method="POST">
+        <form action="/newplayer" method="POST">
             <label for="player">Player:</label>
             <select id="player" name="player">
                 <% players.map((player) => { %>

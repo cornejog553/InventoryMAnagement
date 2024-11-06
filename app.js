@@ -3,6 +3,8 @@ const playerRouter = require('./routes/playerRoutes')
 const teamRouter = require('./routes/teamRoutes')
 const jerseyRouter = require('./routes/jerseyRoutes')
 const newJerseyRouter = require('./routes/newJerseyRoutes')
+const newPlayerRouter = require('./routes/newPlayerRoutes')
+const deleteRouter = require('./routes/deleteRoutes')
 const app = express();
 const path = require("node:path");
 const db = require("./db/queries");
@@ -27,7 +29,11 @@ app.use('/players', playerRouter);
 
 app.use('/jersey', jerseyRouter);
 
-app.use('/new', newJerseyRouter)
+app.use('/newjersey', newJerseyRouter)
+
+app.use('/newplayer', newPlayerRouter)
+
+app.use('/delete', deleteRouter)
 
 const PORT = 3000;
 app.listen(PORT, () => console.log(`My first Express app - listening on port ${PORT}!`));

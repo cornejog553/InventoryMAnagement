@@ -5,6 +5,11 @@ async function getAllPlayers() {
   return rows;
 }
 
+async function getAllJerseys() {
+  const { rows } = await pool.query("SELECT * FROM jerseys");
+  return rows;
+}
+
 async function getSpecificPlayerJerseys(playerId) {
   const { rows } = await pool.query("SELECT jerseys.image_link, jerseys.jersey_id, player.name, player.player_id FROM jerseys INNER JOIN player ON jerseys.player = player.player_id WHERE player.player_id = $1",[playerId]);
   return rows;
@@ -49,8 +54,13 @@ async function insertNewJersey(number, price, quantity, image_link, player, team
   await pool.query("INSERT INTO jerseys (number, price, quantity, image_link, player, team) VALUES ($1, $2, $3, $4, $5, $6)", [number, price,quantity, image_link, player, team]);
 }
 
+async function insertNewPlayer(name, image_link) {
+  await pool.query("INSERT INTO player (name, image_link) VALUES ($1, $2)", [name, image_link]);
+}
+
 module.exports = {
   getAllPlayers,
+  getAllJerseys,
   getSpecificPlayerJerseys,
   getEasternTeams,
   getWesternTeams,
@@ -58,5 +68,6 @@ module.exports = {
   getJerseysByTeam,
   getJerseysImage,
   getJerseyDetailsById,
-  insertNewJersey
+  insertNewJersey,
+  insertNewPlayer
 };
