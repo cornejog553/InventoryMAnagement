@@ -15,6 +15,6 @@ const router = express.Router();
 // GET request for getting all the users
 router.get('/', deleteController.displayDeletePage);
 
-router.post('/', deleteController.deleteJersey);
+router.post('/:id', deleteController.deleteJersey);
 
 module.exports = router;

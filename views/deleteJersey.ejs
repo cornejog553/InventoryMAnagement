@@ -1,10 +1,12 @@
 <html>
     <body>   
         <%- include('navbar') %>
-        <h1>Delete Jerseys</h1>
+        <h1>Delete Jerseys</h1>       
             <% jerseys.map((jersey) => { %>
-                <img src = "<%= jersey.image_link %>">
-                <button data-jerseyid="<%= jersey.jersey_id %>">Delete</button>
-            <% }) %>
+                <form action="/deletejersey/<%= jersey.jersey_id %>" method="POST">
+                    <img src = "<%= jersey.image_link %>">
+                    <button type="submit">Delete</button>
+                </form>
+            <% }) %>      
     </body>
 </html>

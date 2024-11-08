@@ -6,9 +6,10 @@ async function displayDeletePage(req, res) {
 }
 
 async function deleteJersey(req, res) {
-  let id = req.body.data
-    
-  res.render("../views/newPlayer");
+  let id = req.params.id
+  const jerseys = await db.getAllJerseys();
+  await db.deleteJersey(id)
+  res.redirect("/");
 }
 
 module.exports = {

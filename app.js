@@ -33,7 +33,7 @@ app.use('/newjersey', newJerseyRouter)
 
 app.use('/newplayer', newPlayerRouter)
 
-app.use('/delete', deleteRouter)
+app.use('/deletejersey', deleteRouter)
 
 const PORT = 3000;
 app.listen(PORT, () => console.log(`My first Express app - listening on port ${PORT}!`));

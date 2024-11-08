@@ -58,6 +58,10 @@ async function insertNewPlayer(name, image_link) {
   await pool.query("INSERT INTO player (name, image_link) VALUES ($1, $2)", [name, image_link]);
 }
 
+async function deleteJersey(id) {
+  await pool.query("DELETE FROM jerseys WHERE jersey_id = $1", [id]);
+}
+
 module.exports = {
   getAllPlayers,
   getAllJerseys,
@@ -69,5 +73,6 @@ module.exports = {
   getJerseysImage,
   getJerseyDetailsById,
   insertNewJersey,
-  insertNewPlayer
+  insertNewPlayer,
+  deleteJersey
 };
