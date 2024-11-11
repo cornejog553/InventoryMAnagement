@@ -5,6 +5,7 @@ const jerseyRouter = require('./routes/jerseyRoutes')
 const newJerseyRouter = require('./routes/newJerseyRoutes')
 const newPlayerRouter = require('./routes/newPlayerRoutes')
 const deleteRouter = require('./routes/deleteRoutes')
+const updateRouter = require('./routes/updateRoutes')
 const app = express();
 const path = require("node:path");
 const db = require("./db/queries");
@@ -32,6 +33,8 @@ app.use('/jersey', jerseyRouter);
 app.use('/newjersey', newJerseyRouter)
 
 app.use('/newplayer', newPlayerRouter)
+
+app.use('/updatejersey', updateRouter)
 
 app.use('/deletejersey', deleteRouter)
 
