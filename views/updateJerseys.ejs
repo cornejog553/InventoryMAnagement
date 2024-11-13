@@ -8,7 +8,7 @@
 
                     <br><label for="player">Player:</label>
             <select id="player" name="player" >
-                <option value="" disabled selected><%= jersey.player %></option>
+                <option value="<%= jersey.player %>" selected><%= jersey.name %></option>
                 <% players.map((player) => { %>
                     <option value="<%= player.player_id %>"><%= player.name %></option>
                 <% }) %>
@@ -16,7 +16,7 @@
 
             <label for="team">Team:</label>
                 <select id="team" name="team">
-                <option value="" disabled selected><%= jersey.team %></option>
+                <option value="<%= jersey.team %>" selected><%= jersey.team %></option>
                 <option value="Atlanta Hawks">Atlanta Hawks</option>
                 <option value="Boston Celtics">Boston Celtics</option>
                 <option value="Brooklyn Nets">Brooklyn Nets</option>
@@ -61,7 +61,7 @@
             <label for="imageLink">URL Link For Image:</label>
             <input type="text" name="imagelink" id="imageLink" placeholder="<%= jersey.image_link %>"><br>
                     <button type="submit">Update</button>
-                </form>
+            </form>
             <% }) %>      
     </body>
 </html>

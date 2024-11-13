@@ -10,6 +10,11 @@ async function getAllJerseys() {
   return rows;
 }
 
+async function getAllJerseysWithPlayerName() {
+  const { rows } = await pool.query("SELECT jerseys.jersey_id, jerseys.number, jerseys.price, jerseys.quantity, jerseys.image_link, jerseys.team, jerseys.player, player.name FROM jerseys INNER JOIN player ON jerseys.player = player.player_id");
+  return rows;
+}
+
 async function getSpecificPlayerJerseys(playerId) {
   const { rows } = await pool.query("SELECT jerseys.image_link, jerseys.jersey_id, player.name, player.player_id FROM jerseys INNER JOIN player ON jerseys.player = player.player_id WHERE player.player_id = $1",[playerId]);
   return rows;
@@ -62,6 +67,10 @@ async function deleteJersey(id) {
   await pool.query("DELETE FROM jerseys WHERE jersey_id = $1", [id]);
 }
 
+async function updateJersey(player, team, playernumber, jerseyprice, jerseyquantity, imagelink, jerseyId) {
+  await pool.query("UPDATE jerseys SET number = ($1), price = ($2), quantity = ($3), image_link = ($4), player = ($5), team = ($6)  WHERE jersey_id = ($7)", [playernumber, jerseyprice, jerseyquantity, imagelink, player, team, jerseyId]);
+}
+
 module.exports = {
   getAllPlayers,
   getAllJerseys,
@@ -74,5 +83,7 @@ module.exports = {
   getJerseyDetailsById,
   insertNewJersey,
   insertNewPlayer,
-  deleteJersey
+  deleteJersey,
+  getAllJerseysWithPlayerName,
+  updateJersey
 };
