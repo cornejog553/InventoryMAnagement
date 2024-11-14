@@ -11,25 +11,29 @@
         <div class="teams">
             <div class="conference eastern">
                 <h2>Eastern Conference</h2>
-                <% easternteams.map((team) => { %>
-                    <div class="teamInfo">
-                        <h3><%= team.name %></h3>
-                        <a href="/team?team=<%= team.name %>">
-                            <img src = "<%= team.image_link %>" class="teamImg">
-                        </a>
-                    </div>
-                  <% }) %>
+                <div class="teamsContainer">
+                    <% easternteams.map((team) => { %>
+                        <div class="teamInfo">
+                            <h3><%= team.name %></h3>
+                            <a href="/team?team=<%= team.name %>">
+                                <img src = "<%= team.image_link %>" class="teamImg">
+                            </a>
+                        </div>
+                      <% }) %>
+                </div>
             </div>
             <div class="conference western">
                 <h2>Western Conference</h2>
-                <% westernteams.map((team) => { %>
-                    <div class="teamInfo">
-                        <h3><%= team.name %></h3>
-                        <a href="/team?team=<%= team.name %>">
-                            <img src = "<%= team.image_link %>" class="teamImg">
-                        </a>
-                    </div>
-                <% }) %>
+                <div class="teamsContainer">
+                    <% westernteams.map((team) => { %>
+                        <div class="teamInfo">
+                            <h3><%= team.name %></h3>
+                            <a href="/team?team=<%= team.name %>">
+                                <img src = "<%= team.image_link %>" class="teamImg">
+                            </a>
+                        </div>
+                    <% }) %>
+                </div>
             </div>
         </div>
             
