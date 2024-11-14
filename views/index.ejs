@@ -1,33 +1,53 @@
 <html>
+    <head>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
     <body>
         
         <%- include('navbar') %>
-        <h1>By Team</h1>
-            <h2>Eastern Conference</h2>
+        <div class="header">
+            <h1>By Team</h1>
+        </div>
+        <div class="teams">
+            <div class="conference eastern">
+                <h2>Eastern Conference</h2>
                 <% easternteams.map((team) => { %>
-                    <h3><%= team.name %></h3>
-                    <a href="/team?team=<%= team.name %>">
-                        <img src = "<%= team.image_link %>">
-                    </a>
+                    <div class="teamInfo">
+                        <h3><%= team.name %></h3>
+                        <a href="/team?team=<%= team.name %>">
+                            <img src = "<%= team.image_link %>" class="teamImg">
+                        </a>
+                    </div>
                   <% }) %>
-            <h2>Western Conference</h2>
-            <% westernteams.map((team) => { %>
-                <h3><%= team.name %></h3>
-                <a href="/team?team=<%= team.name %>">
-                    <img src = "<%= team.image_link %>">
-                </a>
-                
+            </div>
+            <div class="conference western">
+                <h2>Western Conference</h2>
+                <% westernteams.map((team) => { %>
+                    <div class="teamInfo">
+                        <h3><%= team.name %></h3>
+                        <a href="/team?team=<%= team.name %>">
+                            <img src = "<%= team.image_link %>" class="teamImg">
+                        </a>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+            
+        <h1 class="header">By Player</h1>
+        <div class="playerContainer">
+            <% player.map((player) => { %>
+                <div class="playerCard">
+                    <h3><%= player.name %></h3>
+                    <a href="/players?playerid=<%= player.player_id %>">
+                        <img src = "<%= player.image_link %>" class="playerImg">
+                    </a>
+                </div>
             <% }) %>
-        <h1>By Player</h1></a>
-        <% player.map((player) => { %>
-            <h3><%= player.name %></h3>
-            <a href="/players?playerid=<%= player.player_id %>">
-                <img src = "<%= player.image_link %>">
-            </a>
-          <% }) %>
-        <h1>All Jerseys</h1>
+        </div>
+        
+        <h1 class="header">All Jerseys</h1>
         <% jerseyimages.map((jersey) => { %>
-            <img src = "<%= jersey.image_link %>">
+            <img src = "<%= jersey.image_link %>" class="jerseyImg">
           <% }) %>
     </body>
 </html>

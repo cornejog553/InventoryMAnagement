@@ -1,0 +1,91 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: grid;
+}
+
+nav {
+    width: 100%;
+    background-color: black;
+    margin: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-item a {
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: white;
+  }
+
+.header {
+    text-align: center;
+}
+
+.teams {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.teams h2 {
+    text-align: center;
+}
+
+.conference {
+    text-align: center;
+}
+
+.teams h3 {
+    display: inline-block;
+}
+
+.teams img {
+    display: block;
+}
+
+.teamInfo {
+    display: inline-block;
+    width: 25%;
+    padding: 0;
+}
+
+.teamInfo a {
+    display: block;
+    text-align: center;
+}
+
+
+.teamImg {
+    height: 100px;
+}
+
+.playerContainer {
+    display: flex;
+}
+
+.playerCard {
+    text-align: center;
+}
+
+.playerImg {
+    height: 200px;
+}
+
+.jerseyImg {
+    height: 400px;
+}

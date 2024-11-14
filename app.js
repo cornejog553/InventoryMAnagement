@@ -9,6 +9,7 @@ const updateRouter = require('./routes/updateRoutes')
 const app = express();
 const path = require("node:path");
 const db = require("./db/queries");
+const assetsPath = path.join(__dirname, "public");
 
 
 app.set("views", path.join(__dirname, "views"));
@@ -16,6 +17,7 @@ app.set("view engine", "ejs");
 app.get("/", displayIndex);
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(assetsPath));
 
 app.use((req, res, next) => {
     // You can of course also create your own for your own use-case!
