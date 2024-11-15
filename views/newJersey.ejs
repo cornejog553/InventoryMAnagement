@@ -1,9 +1,15 @@
 <html>
+    <head>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
     <body>
         <%- include('navbar') %>
-        <h1>New Jersey</h1>
-        <form action="/newjersey" method="POST">
-            <label for="player">Player:</label>
+        <h1 class="header">Add New Jersey</h1>
+        <div class="manageContainer">
+            <form action="/newjersey" method="POST">
+
+                <div class="inputContainer">
+                    <label for="player">Player:</label>
             <select id="player" name="player">
                 <% players.map((player) => { %>
                     <option value="<%= player.player_id %>"><%= player.name %></option>
@@ -57,6 +63,10 @@
             <input type="text" name="imagelink" id="imageLink"><br>
 
             <button type="submit">Submit</button>
-        </form>
+                </div>
+            </form>
+            
+        </div>
+        
     </body>
 </html>

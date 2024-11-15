@@ -1,8 +1,11 @@
 <html>
+    <head>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
     <body>
         <%- include('navbar') %>
-
-        <h1>New Player</h1>
+        <h1 class="header">New Player</h1>
+        <div class="manageContainer">
 
         <form action="/newplayer" method="POST">
             <label for="name">Player's Full Name:</label><br>
@@ -11,5 +14,7 @@
             <input type="text" name="imagelink" id="imagelink"><br>
 
             <button type="submit">Submit</button>
+        </div>  
+        
     </body>
 </html>

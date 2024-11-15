@@ -1,12 +1,18 @@
 <html>
+    <head>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
     <body>   
         <%- include('navbar') %>
-        <h1>Update Jerseys</h1>       
+        <h1 class="header">Update Jerseys</h1>
+        <div class="manageContainer">
+                   
             <% jerseys.map((jersey) => { %>
                 <form action="/updatejersey/<%= jersey.jersey_id %>" method="POST">
                     <img src = "<%= jersey.image_link %>">
 
-                    <br><label for="player">Player:</label>
+            <div class="inputContainer">
+                <br><label for="player">Player:</label>
             <select id="player" name="player" >
                 <option value="<%= jersey.player %>" selected><%= jersey.name %></option>
                 <% players.map((player) => { %>
@@ -63,5 +69,9 @@
                     <button type="submit">Update</button>
             </form>
             <% }) %>      
+            </div>
+            
+        </div>  
+        
     </body>
 </html>

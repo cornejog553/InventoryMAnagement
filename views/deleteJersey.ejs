@@ -1,12 +1,19 @@
 <html>
+    <head>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
     <body>   
         <%- include('navbar') %>
-        <h1>Delete Jerseys</h1>       
+        <h1 class="header">Delete Jerseys</h1>
+        <div class="manageContainer">       
             <% jerseys.map((jersey) => { %>
                 <form action="/deletejersey/<%= jersey.jersey_id %>" method="POST">
-                    <img src = "<%= jersey.image_link %>">
-                    <button type="submit">Delete</button>
+                    <div class="inputContainer">
+                        <img src = "<%= jersey.image_link %>">
+                        <button type="submit" id="deleteButton">Delete</button>
+                    </div>
                 </form>
             <% }) %>      
+        </div>
     </body>
 </html>
