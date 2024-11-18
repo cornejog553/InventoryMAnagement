@@ -1,14 +1,17 @@
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/styles.css">
     </head>
     <body>
         
         <%- include('navbar') %>
-        <h1>By Team</h1>
+        <h1 class="header">By Team</h1>
                 <% teamjerseys.map((team) => { %>
                     <a href="/jersey?jerseyid=<%= team.jersey_id %>">
-                        <img src = "<%= team.image_link %>">
+                        <img src = "<%= team.image_link %>" class="jerseyImg">
                     </a>
                     
                   <% }) %>

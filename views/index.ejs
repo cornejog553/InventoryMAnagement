@@ -1,5 +1,8 @@
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/styles.css">
     </head>
     <body>
@@ -50,9 +53,11 @@
         </div>
         
         <h1 class="header">All Jerseys</h1>
-        <% jerseyimages.map((jersey) => { %>
-            <img src = "<%= jersey.image_link %>" class="jerseyImg">
-          <% }) %>
+        <div class="jerseysContainer">
+            <% jerseyimages.map((jersey) => { %>
+                <img src = "<%= jersey.image_link %>" class="jerseyImg">
+            <% }) %>
+        </div>
         </div>
         
     </body>
